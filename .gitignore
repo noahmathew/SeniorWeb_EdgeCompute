@@ -1,0 +1,4 @@
+# Large video files (GitHub limit: 100 MB)
+# Host videos externally (YouTube, Vimeo, etc.) and embed via URL
+videos/*.mp4
+*.mp4

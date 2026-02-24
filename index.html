@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi Modal Edge AI System for Anomaly Detection in Pharmaceutical Manufacturing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0e14;
+      --bg-secondary: #131920;
+      --bg-card: #1a2029;
+      --accent: #00d4aa;
+      --accent-muted: #00a88a;
+      --text-primary: #e6edf3;
+      --text-secondary: #8b949e;
+      --border: #2d3748;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    header {
+      padding: 3rem 0 2rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 600;
+      max-width: 900px;
+      margin: 0 auto 0.75rem;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 0;
+    }
+
+    section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    section h2::before {
+      content: '';
+      width: 4px;
+      height: 1.25em;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* Media Grid */
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .media-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .media-card:hover {
+      border-color: var(--accent-muted);
+      transform: translateY(-2px);
+    }
+
+    .media-card img,
+    .media-card video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .media-card video {
+      background: var(--bg-secondary);
+    }
+
+    .media-card .caption {
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .media-card .caption strong {
+      color: var(--text-primary);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Video Section */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .video-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .video-card:hover {
+      border-color: var(--accent-muted);
+      transform: translateY(-2px);
+    }
+
+    .video-card video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+      background: var(--bg-secondary);
+    }
+
+    .video-card .caption {
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .video-card .caption strong {
+      color: var(--text-primary);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Placeholder styling */
+    .placeholder-box {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem 0 3rem;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Multi Modal Edge AI System for Anomaly Detection in Pharmaceutical Manufacturing</h1>
+      <p class="subtitle">Real-time visual inspection and quality assurance at the edge</p>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <h2>Demo Videos</h2>
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="placeholder-box">Anomaly Detection Demo<br><small>Add video URL or host externally (YouTube, Vimeo)</small></div>
+            <div class="caption">
+              <strong>Anomaly Detection Demo</strong>
+              Edge AI inference on pharmaceutical manufacturing line. Host large videos on YouTube/Vimeo and embed the URL.
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="placeholder-box">Placeholder Video 2</div>
+            <div class="caption">
+              <strong>Placeholder Video</strong>
+              Add your video file to replace this placeholder
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="placeholder-box">Placeholder Video 3</div>
+            <div class="caption">
+              <strong>Placeholder Video</strong>
+              Add your video file to replace this placeholder
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>System Overview</h2>
+        <div class="media-grid">
+          <div class="media-card">
+            <img src="https://placehold.co/640x360/1a2029/00d4aa?text=Architecture+Diagram" alt="System architecture placeholder">
+            <div class="caption">
+              <strong>System Architecture</strong>
+              Edge compute pipeline and sensor integration
+            </div>
+          </div>
+          <div class="media-card">
+            <img src="https://placehold.co/640x360/1a2029/00d4aa?text=Manufacturing+Line" alt="Manufacturing line placeholder">
+            <div class="caption">
+              <strong>Manufacturing Line</strong>
+              Pharmaceutical production environment
+            </div>
+          </div>
+          <div class="media-card">
+            <img src="https://placehold.co/640x360/1a2029/00d4aa?text=AI+Inference" alt="AI inference placeholder">
+            <div class="caption">
+              <strong>AI Inference</strong>
+              Multi-modal anomaly detection results
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Results & Metrics</h2>
+        <div class="media-grid">
+          <div class="media-card">
+            <img src="https://placehold.co/640x360/1a2029/00d4aa?text=Detection+Metrics" alt="Detection metrics placeholder">
+            <div class="caption">
+              <strong>Detection Performance</strong>
+              Accuracy and latency benchmarks
+            </div>
+          </div>
+          <div class="media-card">
+            <img src="https://placehold.co/640x360/1a2029/00d4aa?text=Sample+Anomalies" alt="Sample anomalies placeholder">
+            <div class="caption">
+              <strong>Detected Anomalies</strong>
+              Example defect classifications
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Multi Modal Edge AI System for Anomaly Detection in Pharmaceutical Manufacturing</p>
+    </div>
+  </footer>
+</body>
+</html>
