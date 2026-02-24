@@ -110,8 +110,9 @@
     .media-card video {
       width: 100%;
       aspect-ratio: 16 / 9;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
+      background: var(--bg-secondary);
     }
 
     .media-card video {
@@ -242,19 +243,19 @@
         <h2>Demo Videos</h2>
         <div class="video-grid">
           <div class="video-card">
+            <div class="placeholder-box">Placeholder Video 1</div>
+            <div class="caption">
+              <strong>Placeholder Video</strong>
+              Add your video file to replace this placeholder
+            </div>
+          </div>
+          <div class="video-card">
             <div class="video-embed">
               <iframe src="https://www.youtube.com/embed/qvLvK81kSe4" title="Anomaly Detection Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div class="caption">
               <strong>Anomaly Detection Demo</strong>
               Edge AI inference on pharmaceutical manufacturing line.
-            </div>
-          </div>
-          <div class="video-card">
-            <div class="placeholder-box">Placeholder Video 2</div>
-            <div class="caption">
-              <strong>Placeholder Video</strong>
-              Add your video file to replace this placeholder
             </div>
           </div>
           <div class="video-card">
