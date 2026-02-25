@@ -46,11 +46,24 @@
       border-bottom: 1px solid var(--border);
     }
 
+    .header-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+
+    .header-logo {
+      height: 56px;
+      width: auto;
+    }
+
     h1 {
       font-size: clamp(1.5rem, 4vw, 2.25rem);
       font-weight: 600;
-      max-width: 900px;
-      margin: 0 auto 0.75rem;
+      margin: 0;
       background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -410,7 +423,10 @@
 
   <header id="about">
     <div class="container">
-      <h1>Argus</h1>
+      <div class="header-brand">
+        <img src="photos/argus.png" alt="Argus" class="header-logo">
+        <h1>Argus</h1>
+      </div>
       <p class="subtitle">Multi Modal Edge AI System for Anomaly Detection in Pharmaceutical Manufacturing</p>
     </div>
   </header>
@@ -465,7 +481,9 @@
       <div class="container">
         <h2>How Scientists can Inspect Waste of Materials</h2>
         <div class="video-card" style="max-width: 800px;">
-          <div class="placeholder-box">Video Placeholder</div>
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/gk4RPbOXugY" title="Argus, our User Interface" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
           <div class="caption">
             <strong>Argus, our User Interface</strong>
           </div>
