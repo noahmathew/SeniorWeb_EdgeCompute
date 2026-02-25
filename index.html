@@ -63,6 +63,40 @@
       font-weight: 400;
     }
 
+    /* Navigation */
+    nav {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    nav a.active {
+      color: var(--accent);
+    }
+
     /* Sections */
     section {
       padding: 3rem 0;
@@ -159,10 +193,24 @@
       background: var(--bg-secondary);
     }
 
-    .video-card .video-embed iframe {
+    .video-card .video-embed iframe,
+    .media-card .video-embed iframe {
       width: 100%;
       height: 100%;
       border: none;
+    }
+
+    .video-card .video-embed,
+    .video-card img,
+    .media-card .video-embed {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+      background: var(--bg-secondary);
+    }
+
+    .video-card img {
+      object-fit: contain;
     }
 
     .video-card .caption {
@@ -201,7 +249,16 @@
   </style>
 </head>
 <body>
-  <header>
+  <nav>
+    <div class="container">
+      <a href="#about">About</a>
+      <a href="#videos">Videos</a>
+      <a href="#meet-the-team">Meet the Team</a>
+      <a href="https://github.com/noahmathew/SeniorWeb_EdgeCompute" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </nav>
+
+  <header id="about">
     <div class="container">
       <h1>Multi Modal Edge AI System for Anomaly Detection in Pharmaceutical Manufacturing</h1>
       <p class="subtitle">Real-time visual inspection and quality assurance at the edge</p>
@@ -209,6 +266,17 @@
   </header>
 
   <main>
+    <section id="about-content">
+      <div class="container">
+        <h2>About</h2>
+        <p style="max-width: 700px; color: var(--text-secondary); font-size: 1.05rem;">
+          This project implements a multi-modal edge AI system for real-time anomaly detection in pharmaceutical manufacturing. 
+          Our solution uses a fine-tuned YOLO classifier to detect cracks and verify proper vial capping, enabling quality assurance 
+          at the edge with minimal latency.
+        </p>
+      </div>
+    </section>
+
     <section>
       <div class="container">
         <h2>System Overview</h2>
@@ -221,10 +289,12 @@
             </div>
           </div>
           <div class="media-card">
-            <img src="photos/WholeLevelView.png" alt="Manufacturing line - edge AI testbed with conveyor and vials">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/qvLvK81kSe4" title="Anomaly Detection Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
             <div class="caption">
-              <strong>Manufacturing Line</strong>
-              Pharmaceutical production environment
+              <strong>Anomaly Detection Demo</strong>
+              Edge AI inference on pharmaceutical manufacturing line.
             </div>
           </div>
           <div class="media-card">
@@ -238,7 +308,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="videos">
       <div class="container">
         <h2>Demo Videos</h2>
         <div class="video-grid">
@@ -250,12 +320,10 @@
             </div>
           </div>
           <div class="video-card">
-            <div class="video-embed">
-              <iframe src="https://www.youtube.com/embed/qvLvK81kSe4" title="Anomaly Detection Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
+            <img src="photos/WholeLevelView.png" alt="Manufacturing line - edge AI testbed with conveyor and vials">
             <div class="caption">
-              <strong>Anomaly Detection Demo</strong>
-              Edge AI inference on pharmaceutical manufacturing line.
+              <strong>Manufacturing Line</strong>
+              Pharmaceutical production environment
             </div>
           </div>
           <div class="video-card">
@@ -263,6 +331,28 @@
             <div class="caption">
               <strong>Placeholder Video</strong>
               Add your video file to replace this placeholder
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="meet-the-team">
+      <div class="container">
+        <h2>Meet the Team</h2>
+        <div class="media-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+          <div class="media-card">
+            <div class="placeholder-box" style="aspect-ratio: 1;">Team Member</div>
+            <div class="caption">
+              <strong>Placeholder</strong>
+              Add team member photos and names
+            </div>
+          </div>
+          <div class="media-card">
+            <div class="placeholder-box" style="aspect-ratio: 1;">Team Member</div>
+            <div class="caption">
+              <strong>Placeholder</strong>
+              Add team member photos and names
             </div>
           </div>
         </div>
