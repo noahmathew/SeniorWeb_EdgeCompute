@@ -260,6 +260,148 @@
       font-size: 0.95rem;
     }
 
+    /* Anomaly cards */
+    .anomaly-section {
+      margin-top: 2rem;
+    }
+
+    .anomaly-intro {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 800px;
+      margin-bottom: 2rem;
+    }
+
+    .anomaly-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .anomaly-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .anomaly-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .anomaly-card:hover {
+      border-color: var(--accent-muted);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 212, 170, 0.12);
+    }
+
+    .anomaly-card--good { --anomaly-accent: #00d4aa; }
+    .anomaly-card--hazard { --anomaly-accent: #e6a23c; }
+    .anomaly-card--bad { --anomaly-accent: #e74c3c; }
+
+    .anomaly-card:hover .anomaly-card__badge {
+      background: var(--anomaly-accent);
+      color: var(--bg-primary);
+    }
+
+    .anomaly-card__image-wrap {
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: var(--bg-secondary);
+    }
+
+    .anomaly-card__image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .anomaly-card__badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .anomaly-card--good .anomaly-card__badge { background: rgba(0, 212, 170, 0.2); color: var(--accent); }
+    .anomaly-card--hazard .anomaly-card__badge { background: rgba(230, 162, 60, 0.2); color: #e6a23c; }
+    .anomaly-card--bad .anomaly-card__badge { background: rgba(231, 76, 60, 0.2); color: #e74c3c; }
+
+    .anomaly-card__content {
+      padding: 1.25rem;
+    }
+
+    .anomaly-card__title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .anomaly-card__preview {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .anomaly-card__hint {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      opacity: 0.8;
+      margin-top: 0.75rem;
+    }
+
+    /* Anomaly detail modal */
+    .anomaly-modal .image-modal__content {
+      max-width: 900px;
+    }
+
+    .anomaly-modal__images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      width: 100%;
+      max-width: 700px;
+    }
+
+    @media (max-width: 600px) {
+      .anomaly-modal__images {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .anomaly-modal__img-block {
+      text-align: center;
+    }
+
+    .anomaly-modal__img-block img {
+      max-height: 280px;
+      width: auto;
+      border-radius: 8px;
+    }
+
+    .anomaly-modal__img-label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+    }
+
+    .anomaly-modal__desc {
+      text-align: left;
+      max-width: 100%;
+      line-height: 1.7;
+    }
+
     .media-card img,
     .media-card video {
       width: 100%;
@@ -653,11 +795,46 @@
               Accuracy and latency benchmarks
             </div>
           </div>
-          <div class="media-card">
-            <img src="https://placehold.co/640x360/1a2029/00d4aa?text=Sample+Anomalies" alt="Sample anomalies placeholder">
-            <div class="caption">
-              <strong>Detected Anomalies</strong>
-              Example defect classifications
+        </div>
+
+        <div class="anomaly-section">
+          <h2 style="margin-top: 2.5rem;">Detected Anomalies</h2>
+          <p class="anomaly-intro">
+            Our pipeline begins with computer vision data collection, then uses a pre-trained YOLO classifier fine-tuned to detect cracks and verify proper vial capping. Click each category to explore the anomalies we track.
+          </p>
+          <div class="anomaly-grid">
+            <div class="anomaly-card anomaly-card--good" data-anomaly-label="photos/GoodVialLabel.png" data-anomaly-more="photos/GoodVialMore.png" data-anomaly-title="Good" data-anomaly-desc="The vial has no cracks, is properly capped, and is at an ideal temperature. This is the desired state for production—no corrective action needed.">
+              <div class="anomaly-card__image-wrap">
+                <img src="photos/GoodVialLabel.png" alt="Good vial - properly capped, no cracks">
+              </div>
+              <div class="anomaly-card__content">
+                <span class="anomaly-card__badge">Pass</span>
+                <h3 class="anomaly-card__title">Good</h3>
+                <p class="anomaly-card__preview">No cracks, properly capped, ideal temperature.</p>
+                <p class="anomaly-card__hint">Click to view details</p>
+              </div>
+            </div>
+            <div class="anomaly-card anomaly-card--hazard" data-anomaly-label="photos/HazardVialLabel.png" data-anomaly-more="photos/HazardVialMore.png" data-anomaly-title="Hazard" data-anomaly-desc="The vial has no cracks and temperature is within acceptable range, but the vial is not properly capped. This is a salvageable defect—the product can be re-capped before it is lost.">
+              <div class="anomaly-card__image-wrap">
+                <img src="photos/HazardVialLabel.png" alt="Hazard vial - improperly capped">
+              </div>
+              <div class="anomaly-card__content">
+                <span class="anomaly-card__badge">Warning</span>
+                <h3 class="anomaly-card__title">Hazard</h3>
+                <p class="anomaly-card__preview">No cracks, temp OK—but not properly capped.</p>
+                <p class="anomaly-card__hint">Click to view details</p>
+              </div>
+            </div>
+            <div class="anomaly-card anomaly-card--bad" data-anomaly-label="photos/BrokenVialLabel.png" data-anomaly-more="photos/BrokenVialMore.png" data-anomaly-title="Bad" data-anomaly-desc="The vial has cracks and/or the temperature is outside acceptable range. The vial is no longer salvageable—miscapping is no longer a pressing concern at this stage, as the product must be discarded.">
+              <div class="anomaly-card__image-wrap">
+                <img src="photos/BrokenVialLabel.png" alt="Broken vial - cracks or bad temperature">
+              </div>
+              <div class="anomaly-card__content">
+                <span class="anomaly-card__badge">Fail</span>
+                <h3 class="anomaly-card__title">Bad</h3>
+                <p class="anomaly-card__preview">Cracks and/or bad temperature—not salvageable.</p>
+                <p class="anomaly-card__hint">Click to view details</p>
+              </div>
             </div>
           </div>
         </div>
@@ -678,6 +855,26 @@
       <div class="image-modal__caption" id="modalCaption">
         <strong id="modalTitle"></strong>
         <span id="modalDesc"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="image-modal anomaly-modal" id="anomalyModal" aria-hidden="true">
+    <button class="image-modal__close" id="anomalyModalClose" aria-label="Close">&times;</button>
+    <div class="image-modal__content">
+      <strong id="anomalyModalTitle" style="font-size: 1.25rem; color: var(--text-primary);"></strong>
+      <div class="anomaly-modal__images">
+        <div class="anomaly-modal__img-block">
+          <img src="" alt="" id="anomalyModalLabel">
+          <p class="anomaly-modal__img-label">Labeled Detection</p>
+        </div>
+        <div class="anomaly-modal__img-block">
+          <img src="" alt="" id="anomalyModalMore">
+          <p class="anomaly-modal__img-label">Detailed View</p>
+        </div>
+      </div>
+      <div class="image-modal__caption anomaly-modal__desc">
+        <span id="anomalyModalDesc"></span>
       </div>
     </div>
   </div>
@@ -707,6 +904,41 @@
         });
       });
 
+      var anomalyModal = document.getElementById('anomalyModal');
+      var anomalyModalClose = document.getElementById('anomalyModalClose');
+      document.querySelectorAll('.anomaly-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          var labelImg = this.getAttribute('data-anomaly-label');
+          var moreImg = this.getAttribute('data-anomaly-more');
+          var title = this.getAttribute('data-anomaly-title');
+          var desc = this.getAttribute('data-anomaly-desc');
+          if (labelImg && moreImg && title) {
+            document.getElementById('anomalyModalTitle').textContent = title;
+            document.getElementById('anomalyModalLabel').src = labelImg;
+            document.getElementById('anomalyModalLabel').alt = title + ' - labeled';
+            document.getElementById('anomalyModalMore').src = moreImg;
+            document.getElementById('anomalyModalMore').alt = title + ' - detailed';
+            document.getElementById('anomalyModalDesc').textContent = desc || '';
+            anomalyModal.classList.add('is-open');
+            anomalyModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+
+      anomalyModalClose.addEventListener('click', function() {
+        anomalyModal.classList.remove('is-open');
+        anomalyModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      });
+      anomalyModal.addEventListener('click', function(e) {
+        if (e.target === anomalyModal) {
+          anomalyModal.classList.remove('is-open');
+          anomalyModal.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+      });
+
       function closeModal() {
         modal.classList.remove('is-open');
         modal.setAttribute('aria-hidden', 'true');
@@ -718,7 +950,14 @@
         if (e.target === modal) closeModal();
       });
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+        if (e.key === 'Escape') {
+          if (modal.classList.contains('is-open')) closeModal();
+          if (anomalyModal.classList.contains('is-open')) {
+            anomalyModal.classList.remove('is-open');
+            anomalyModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+          }
+        }
       });
     })();
   </script>
