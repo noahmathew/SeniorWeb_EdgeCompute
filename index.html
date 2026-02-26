@@ -118,7 +118,7 @@
     /* About section layout */
     .about-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1.4fr;
       gap: 2.5rem;
       align-items: center;
     }
@@ -129,22 +129,36 @@
       line-height: 1.7;
     }
 
-    .about-video-placeholder {
-      aspect-ratio: 16 / 9;
-      background: linear-gradient(145deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
-      border: 1px dashed var(--border);
+    .about-video-wrap {
+      position: relative;
+      width: 100%;
       border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-secondary);
-      font-size: 0.875rem;
-      font-family: 'JetBrains Mono', monospace;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .about-video-wrap::before {
+      content: '';
+      display: block;
+      padding-top: 56.25%;
+    }
+
+    .about-video-wrap iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     @media (max-width: 768px) {
       .about-layout {
         grid-template-columns: 1fr;
+      }
+
+      .about-video-wrap {
+        order: -1;
       }
     }
 
@@ -661,7 +675,9 @@
             in pharmaceutical manufacturing. This project is a proof of concept on how pharmaceutical manufacturing can opt for edge computing
             to reduce the carbon footprint that comes from costs including power and latency.
           </p>
-          <div class="about-video-placeholder">Video Placeholder</div>
+          <div class="about-video-wrap">
+            <iframe src="https://www.youtube.com/embed/kL9bcCSQXDw?autoplay=1&mute=1&loop=1&playlist=kL9bcCSQXDw" title="Argus overview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </section>
