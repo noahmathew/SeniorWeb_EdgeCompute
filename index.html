@@ -94,7 +94,7 @@
     }
 
     .header-logo {
-      height: 96px;
+      height: 160px;
       width: auto;
     }
 
@@ -120,7 +120,7 @@
       bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
-      color: var(--text-secondary);
+      color: rgba(230, 237, 243, 0.9);
       font-size: 0.85rem;
       display: flex;
       flex-direction: column;
@@ -133,8 +133,8 @@
       content: '';
       width: 24px;
       height: 24px;
-      border-right: 2px solid var(--text-secondary);
-      border-bottom: 2px solid var(--text-secondary);
+      border-right: 2px solid rgba(230, 237, 243, 0.85);
+      border-bottom: 2px solid rgba(230, 237, 243, 0.85);
       transform: rotate(45deg);
       margin-top: -4px;
     }
@@ -184,10 +184,50 @@
     }
 
     /* About section layout */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
     .about-text {
       color: var(--text-secondary);
       font-size: 1.05rem;
       line-height: 1.7;
+    }
+
+    .about-video-wrap {
+      position: relative;
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .about-video-wrap::before {
+      content: '';
+      display: block;
+      padding-top: 56.25%;
+    }
+
+    .about-video-wrap iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .about-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .about-video-wrap {
+        order: -1;
+      }
     }
 
     section h2 {
@@ -689,10 +729,7 @@
     </div>
     <div class="hero__overlay"></div>
     <div class="hero__content">
-      <div class="header-brand">
-        <img src="photos/argus.png" alt="Argus" class="header-logo">
-        <h1>Argus</h1>
-      </div>
+      <img src="photos/argus.png" alt="Argus" class="header-logo">
       <p class="subtitle">Multi Modal Edge AI System for Anomaly Detection in Pharmaceutical Manufacturing</p>
     </div>
     <div class="hero__scroll-hint">Scroll to Explore</div>
@@ -702,11 +739,16 @@
     <section id="about-content">
       <div class="container">
         <h2>About</h2>
-        <p class="about-text" style="max-width: 800px;">
-          This project is aimed at developing an eco-friendly, sustainable, cost-effective, and scalable solution for anomaly detection 
-          in pharmaceutical manufacturing. This project is a proof of concept on how pharmaceutical manufacturing can opt for edge computing
-          to reduce the carbon footprint that comes from costs including power and latency.
-        </p>
+        <div class="about-layout">
+          <p class="about-text">
+            This project is aimed at developing an eco-friendly, sustainable, cost-effective, and scalable solution for anomaly detection 
+            in pharmaceutical manufacturing. This project is a proof of concept on how pharmaceutical manufacturing can opt for edge computing
+            to reduce the carbon footprint that comes from costs including power and latency.
+          </p>
+          <div class="about-video-wrap">
+            <iframe src="https://www.youtube.com/embed/kL9bcCSQXDw?autoplay=1&mute=1&loop=1&playlist=kL9bcCSQXDw" title="Argus overview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
       </div>
     </section>
 
