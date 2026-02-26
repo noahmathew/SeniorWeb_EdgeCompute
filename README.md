@@ -1,6 +1,8 @@
-# Multi Modal Edge AI System for Anomaly Detection in Pharmaceutical Manufacturing
+# Argus — Multi Modal Edge AI System for Anomaly Detection in Pharmaceutical Manufacturing
 
 A user-friendly showcase website for the Multi Modal Edge AI System project.
+
+**Live website:** https://noahmathew.github.io/SeniorWeb_EdgeCompute/
 
 ## GitHub Pages Deployment
 
