@@ -703,6 +703,133 @@
       }
     }
 
+    /* Results & Metrics */
+    .metrics-intro {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 800px;
+      margin-bottom: 2.5rem;
+    }
+
+    .metrics-validation {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (max-width: 700px) {
+      .metrics-validation {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .validation-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .validation-card:hover {
+      border-color: var(--accent-muted);
+    }
+
+    .validation-card__title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .validation-card__subtitle {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .validation-matrix {
+      display: grid;
+      grid-template-columns: auto 1fr 1fr;
+      grid-template-rows: auto 1fr 1fr;
+      gap: 2px;
+      font-size: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .validation-matrix__cell {
+      padding: 0.5rem;
+      text-align: center;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .validation-matrix__cell--header {
+      color: var(--text-secondary);
+    }
+
+    .validation-matrix__cell--perfect {
+      background: rgba(0, 212, 170, 0.25);
+      color: var(--accent);
+    }
+
+    .validation-matrix__cell--none {
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      opacity: 0.6;
+    }
+
+    .metrics-table-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .metrics-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .metrics-table th {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 1rem 1.25rem;
+      text-align: left;
+    }
+
+    .metrics-table td {
+      padding: 1rem 1.25rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .metrics-table tr:hover td {
+      background: rgba(0, 212, 170, 0.05);
+    }
+
+    .metrics-table .accuracy {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .metrics-explanation {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 700px;
+    }
+
+    .metrics-explanation strong {
+      color: var(--text-primary);
+    }
+
     /* Footer */
     footer {
       padding: 2rem 0 3rem;
@@ -827,19 +954,19 @@
             </div>
           </article>
           <article class="team-card">
-            <div class="team-photo-wrap">Photo</div>
+            <div class="team-photo-wrap"><img src="photos/Meet%20Paribesh.png" alt="Paribesh Thapaliya"></div>
             <div class="team-info">
               <h3 class="team-name">Paribesh Thapaliya</h3>
               <p class="team-title">Computer Vision Engineer</p>
-              <p class="team-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+              <p class="team-bio">My name is Paribesh Thapaliya, and I am a Computer Engineering student at UC Irvine and a contributing member of the Argus project, where I worked on foundational setup for my role by configuring the camera and building automatic data collection using OpenCV to detect and capture vials reliably. My main interest as an engineer is embedded systems because I enjoy writing code that interacts directly with hardware.</p>
             </div>
           </article>
           <article class="team-card">
-            <div class="team-photo-wrap">Photo</div>
+            <div class="team-photo-wrap"><img src="photos/MeetArtin.jpg" alt="Artin Tamaddon"></div>
             <div class="team-info">
               <h3 class="team-name">Artin Tamaddon</h3>
               <p class="team-title">Firmware Engineer</p>
-              <p class="team-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p class="team-bio">My name is Artin Tamaddon-Dallal and I am a contributing member of the Argus project. As a Computer Engineering student at UC Irvine, my focus lies in low-level system development. I contributed to the project by writing the foundational server skeleton, assisting in the training and configuration of the sensor pipeline, and taking on supportive roles across team development. My main interests as an engineer are firmware engineering and C/C++ based programming. I am very committed to building readable, efficient solutions at the hardware level.</p>
             </div>
           </article>
           <article class="team-card">
@@ -857,14 +984,85 @@
     <section>
       <div class="container">
         <h2>Results & Metrics</h2>
-        <div class="media-grid">
-          <div class="media-card">
-            <img src="https://placehold.co/640x360/1a2029/00d4aa?text=Detection+Metrics" alt="Detection metrics placeholder">
-            <div class="caption">
-              <strong>Detection Performance</strong>
-              Accuracy and latency benchmarks
+        <p class="metrics-intro">
+          We used a pre-trained YOLO classifier and fine-tuned it for our pharmaceutical vial inspection use-case. The model detects both cracks and cap defects. Below are our validation and experimental test results.
+        </p>
+
+        <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 1rem;">Model Validation Results</h3>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">During validation, both models achieved perfect classification—every prediction matched the true label.</p>
+        <div class="metrics-validation">
+          <div class="validation-card">
+            <div class="validation-card__title">Cap Detection Model</div>
+            <div class="validation-card__subtitle">Normalized Confusion Matrix</div>
+            <div class="validation-matrix">
+              <div class="validation-matrix__cell validation-matrix__cell--header"></div>
+              <div class="validation-matrix__cell validation-matrix__cell--header">capped</div>
+              <div class="validation-matrix__cell validation-matrix__cell--header">miscapped</div>
+              <div class="validation-matrix__cell validation-matrix__cell--header">capped</div>
+              <div class="validation-matrix__cell validation-matrix__cell--perfect">1.00</div>
+              <div class="validation-matrix__cell validation-matrix__cell--none">0.00</div>
+              <div class="validation-matrix__cell validation-matrix__cell--header">miscapped</div>
+              <div class="validation-matrix__cell validation-matrix__cell--none">0.00</div>
+              <div class="validation-matrix__cell validation-matrix__cell--perfect">1.00</div>
             </div>
+            <div style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.75rem;">Rows: Predicted · Cols: True</div>
           </div>
+          <div class="validation-card">
+            <div class="validation-card__title">Crack Detection Model</div>
+            <div class="validation-card__subtitle">Normalized Confusion Matrix</div>
+            <div class="validation-matrix">
+              <div class="validation-matrix__cell validation-matrix__cell--header"></div>
+              <div class="validation-matrix__cell validation-matrix__cell--header">cracked</div>
+              <div class="validation-matrix__cell validation-matrix__cell--header">normal</div>
+              <div class="validation-matrix__cell validation-matrix__cell--header">cracked</div>
+              <div class="validation-matrix__cell validation-matrix__cell--perfect">1.00</div>
+              <div class="validation-matrix__cell validation-matrix__cell--none">0.00</div>
+              <div class="validation-matrix__cell validation-matrix__cell--header">normal</div>
+              <div class="validation-matrix__cell validation-matrix__cell--none">0.00</div>
+              <div class="validation-matrix__cell validation-matrix__cell--perfect">1.00</div>
+            </div>
+            <div style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.75rem;">Rows: Predicted · Cols: True</div>
+          </div>
+        </div>
+
+        <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 1rem;">Experimental Test Results</h3>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">Performance on real-world test data—how the model performs when deployed on unseen vials.</p>
+        <div class="metrics-table-wrap">
+          <table class="metrics-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Total</th>
+                <th>Correct</th>
+                <th>Incorrect</th>
+                <th>Model Accuracy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Cracked</td>
+                <td>113</td>
+                <td>111</td>
+                <td>2</td>
+                <td class="accuracy">98.2%</td>
+              </tr>
+              <tr>
+                <td>Normal</td>
+                <td>121</td>
+                <td>111</td>
+                <td>10</td>
+                <td class="accuracy">91.7%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="metrics-explanation">
+          <p style="margin-bottom: 0.75rem;"><strong>What these numbers mean:</strong></p>
+          <p style="margin-bottom: 0.5rem;">• <strong>Total</strong> — Number of vials in each category during testing.</p>
+          <p style="margin-bottom: 0.5rem;">• <strong>Correct / Incorrect</strong> — How many the model classified correctly vs. misclassified.</p>
+          <p style="margin-bottom: 0.5rem;">• <strong>Model Accuracy</strong> — Correct ÷ Total. Cracked vials: 111/113 = 98.2%. Normal vials: 111/121 = 91.7%.</p>
+          <p style="margin-top: 1rem;">The crack detector correctly identified 98.2% of cracked vials and 91.7% of normal vials on real test data, demonstrating strong performance for edge deployment.</p>
         </div>
 
         <div class="anomaly-section">

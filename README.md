@@ -13,7 +13,7 @@ A user-friendly showcase website for the Multi Modal Edge AI System project.
 3. Under **Build and deployment** → **Source**, select **Deploy from a branch**
 4. Choose the **main** (or **master**) branch and **/ (root)** folder
 5. Click **Save**
-6. Your site will be live at `https://<username>.github.io/<repo-name>/` within a few minutes
+6. Your site will be live at `https://noahmathew.github.io/SeniorWeb_EdgeCompute/` within a few minutes
 
 ### Option 2: Deploy from /docs folder
 
