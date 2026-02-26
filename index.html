@@ -309,17 +309,15 @@
       color: var(--bg-primary);
     }
 
-    .anomaly-card__images {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem;
+    .anomaly-card__image-wrap {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
       background: var(--bg-secondary);
-      padding: 0.5rem;
     }
 
-    .anomaly-card__images img {
+    .anomaly-card__image-wrap img {
       width: 100%;
-      aspect-ratio: 1;
+      height: 100%;
       object-fit: contain;
     }
 
@@ -368,34 +366,18 @@
       max-width: 900px;
     }
 
-    .anomaly-modal__images {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+    .anomaly-modal__image-wrap {
       width: 100%;
       max-width: 700px;
     }
 
-    @media (max-width: 600px) {
-      .anomaly-modal__images {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .anomaly-modal__img-block {
-      text-align: center;
-    }
-
-    .anomaly-modal__img-block img {
-      max-height: 280px;
+    .anomaly-modal__image-wrap img {
+      max-width: 100%;
+      max-height: 65vh;
       width: auto;
+      height: auto;
+      object-fit: contain;
       border-radius: 8px;
-    }
-
-    .anomaly-modal__img-label {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      margin-top: 0.5rem;
     }
 
     .anomaly-modal__desc {
@@ -805,10 +787,9 @@
             Our pipeline begins with computer vision data collection, then uses a pre-trained YOLO classifier fine-tuned to detect cracks and verify proper vial capping. Click each category to explore the anomalies we track.
           </p>
           <div class="anomaly-grid">
-            <div class="anomaly-card anomaly-card--good" data-anomaly-label="photos/GoodVialLabel.png" data-anomaly-more="photos/GoodVialMore.png" data-anomaly-title="Good" data-anomaly-desc="The vial has no cracks, is properly capped, and is at an ideal temperature. This is the desired state for production—no corrective action needed.">
-              <div class="anomaly-card__images">
-                <img src="photos/GoodVialLabel.png" alt="Good vial - labeled">
-                <img src="photos/GoodVialMore.png" alt="Good vial - detailed">
+            <div class="anomaly-card anomaly-card--good" data-anomaly-more="photos/GoodVialMore.png" data-anomaly-title="Good" data-anomaly-desc="The vial has no cracks, is properly capped, and is at an ideal temperature. This is the desired state for production—no corrective action needed.">
+              <div class="anomaly-card__image-wrap">
+                <img src="photos/GoodVialMore.png" alt="Good vial">
               </div>
               <div class="anomaly-card__content">
                 <span class="anomaly-card__badge">Pass</span>
@@ -817,10 +798,9 @@
                 <p class="anomaly-card__hint">Click to view details</p>
               </div>
             </div>
-            <div class="anomaly-card anomaly-card--hazard" data-anomaly-label="photos/HazardVialLabel.png" data-anomaly-more="photos/HazardVialMore.png" data-anomaly-title="Hazard" data-anomaly-desc="The vial has no cracks and temperature is within acceptable range, but the vial is not properly capped. This is a salvageable defect—the product can be re-capped before it is lost.">
-              <div class="anomaly-card__images">
-                <img src="photos/HazardVialLabel.png" alt="Hazard vial - labeled">
-                <img src="photos/HazardVialMore.png" alt="Hazard vial - detailed">
+            <div class="anomaly-card anomaly-card--hazard" data-anomaly-more="photos/HazardVialMore.png" data-anomaly-title="Hazard" data-anomaly-desc="The vial has no cracks and temperature is within acceptable range, but the vial is not properly capped. This is a salvageable defect—the product can be re-capped before it is lost.">
+              <div class="anomaly-card__image-wrap">
+                <img src="photos/HazardVialMore.png" alt="Hazard vial">
               </div>
               <div class="anomaly-card__content">
                 <span class="anomaly-card__badge">Warning</span>
@@ -829,10 +809,9 @@
                 <p class="anomaly-card__hint">Click to view details</p>
               </div>
             </div>
-            <div class="anomaly-card anomaly-card--bad" data-anomaly-label="photos/BrokenVialLabel.png" data-anomaly-more="photos/BrokenVialMore.png" data-anomaly-title="Bad" data-anomaly-desc="The vial has cracks and/or the temperature is outside acceptable range. The vial is no longer salvageable—miscapping is no longer a pressing concern at this stage, as the product must be discarded.">
-              <div class="anomaly-card__images">
-                <img src="photos/BrokenVialLabel.png" alt="Broken vial - labeled">
-                <img src="photos/BrokenVialMore.png" alt="Broken vial - detailed">
+            <div class="anomaly-card anomaly-card--bad" data-anomaly-more="photos/BrokenVialMore.png" data-anomaly-title="Bad" data-anomaly-desc="The vial has cracks and/or the temperature is outside acceptable range. The vial is no longer salvageable—miscapping is no longer a pressing concern at this stage, as the product must be discarded.">
+              <div class="anomaly-card__image-wrap">
+                <img src="photos/BrokenVialMore.png" alt="Broken vial">
               </div>
               <div class="anomaly-card__content">
                 <span class="anomaly-card__badge">Fail</span>
@@ -868,15 +847,8 @@
     <button class="image-modal__close" id="anomalyModalClose" aria-label="Close">&times;</button>
     <div class="image-modal__content">
       <strong id="anomalyModalTitle" style="font-size: 1.25rem; color: var(--text-primary);"></strong>
-      <div class="anomaly-modal__images">
-        <div class="anomaly-modal__img-block">
-          <img src="" alt="" id="anomalyModalLabel">
-          <p class="anomaly-modal__img-label">Labeled Detection</p>
-        </div>
-        <div class="anomaly-modal__img-block">
-          <img src="" alt="" id="anomalyModalMore">
-          <p class="anomaly-modal__img-label">Detailed View</p>
-        </div>
+      <div class="anomaly-modal__image-wrap">
+        <img src="" alt="" id="anomalyModalImage">
       </div>
       <div class="image-modal__caption anomaly-modal__desc">
         <span id="anomalyModalDesc"></span>
@@ -913,16 +885,13 @@
       var anomalyModalClose = document.getElementById('anomalyModalClose');
       document.querySelectorAll('.anomaly-card').forEach(function(card) {
         card.addEventListener('click', function() {
-          var labelImg = this.getAttribute('data-anomaly-label');
           var moreImg = this.getAttribute('data-anomaly-more');
           var title = this.getAttribute('data-anomaly-title');
           var desc = this.getAttribute('data-anomaly-desc');
-          if (labelImg && moreImg && title) {
+          if (moreImg && title) {
             document.getElementById('anomalyModalTitle').textContent = title;
-            document.getElementById('anomalyModalLabel').src = labelImg;
-            document.getElementById('anomalyModalLabel').alt = title + ' - labeled';
-            document.getElementById('anomalyModalMore').src = moreImg;
-            document.getElementById('anomalyModalMore').alt = title + ' - detailed';
+            document.getElementById('anomalyModalImage').src = moreImg;
+            document.getElementById('anomalyModalImage').alt = title;
             document.getElementById('anomalyModalDesc').textContent = desc || '';
             anomalyModal.classList.add('is-open');
             anomalyModal.setAttribute('aria-hidden', 'false');
