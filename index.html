@@ -367,11 +367,11 @@
 
     .anomaly-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 600px) {
       .anomaly-grid {
         grid-template-columns: 1fr;
       }
@@ -946,7 +946,7 @@
         <h2>Real Time Edge Based Image Capture and Streaming</h2>
         <div class="video-card" style="max-width: 800px;">
           <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/DxWUixn6KDU" title="Real Time Edge Based Image Capture and Streaming" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/F9KOq9uNF0s" title="Real Time Edge Based Image Capture and Streaming" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -1097,7 +1097,7 @@
             Our pipeline begins with computer vision data collection, then uses a pre-trained YOLO classifier fine-tuned to detect cracks and verify proper vial capping. Click each category to explore the anomalies we track.
           </p>
           <div class="anomaly-grid">
-            <div class="anomaly-card anomaly-card--good" data-anomaly-more="photos/GoodVial_bright.png" data-anomaly-title="Good" data-anomaly-desc="The vial has no cracks, is properly capped, and is at an ideal temperature. This is the desired state for production—no corrective action needed.">
+            <div class="anomaly-card anomaly-card--good" data-anomaly-more="photos/GoodVial_bright.png" data-anomaly-title="Good" data-anomaly-desc="The vial has no cracks, is properly capped, and is at an ideal temperature. This is the desired state for production. No corrective action needed.">
               <div class="anomaly-card__image-wrap">
                 <img src="photos/GoodVial_bright.png" alt="Good vial">
               </div>
@@ -1108,36 +1108,36 @@
                 <p class="anomaly-card__hint">Click to view details</p>
               </div>
             </div>
-            <div class="anomaly-card anomaly-card--hazard" data-anomaly-more="photos/MiscappedVial_bright.png" data-anomaly-title="Hazard" data-anomaly-desc="The vial has no cracks and temperature is within acceptable range, but the vial is not properly capped. This is a salvageable defect—the product can be re-capped before it is lost.">
+            <div class="anomaly-card anomaly-card--hazard" data-anomaly-more="photos/MiscappedVial_bright.png" data-anomaly-title="Hazard" data-anomaly-desc="The vial has no cracks and temperature is within acceptable range, but the vial is not properly capped. This is a salvageable defect. The product can be re-capped before it is lost.">
               <div class="anomaly-card__image-wrap">
                 <img src="photos/MiscappedVial_bright.png" alt="Miscapped vial">
               </div>
               <div class="anomaly-card__content">
                 <span class="anomaly-card__badge">Warning</span>
                 <h3 class="anomaly-card__title">Hazard</h3>
-                <p class="anomaly-card__preview">No cracks, temp OK—but not properly capped.</p>
+                <p class="anomaly-card__preview">No cracks, temp OK, but not properly capped.</p>
                 <p class="anomaly-card__hint">Click to view details</p>
               </div>
             </div>
-            <div class="anomaly-card anomaly-card--bad" data-anomaly-more="photos/BadTempVial_bright.png" data-anomaly-title="Bad Temperature" data-anomaly-desc="The vial has temperature outside acceptable range. The vial is no longer salvageable—the product must be discarded.">
+            <div class="anomaly-card anomaly-card--bad" data-anomaly-more="photos/BadTempVial_bright.png" data-anomaly-title="Bad Temperature" data-anomaly-desc="The vial has temperature outside acceptable range. The vial is no longer salvageable. The product must be discarded.">
               <div class="anomaly-card__image-wrap">
                 <img src="photos/BadTempVial_bright.png" alt="Bad temperature vial">
               </div>
               <div class="anomaly-card__content">
                 <span class="anomaly-card__badge">Fail</span>
                 <h3 class="anomaly-card__title">Bad Temperature</h3>
-                <p class="anomaly-card__preview">Temperature outside acceptable range—not salvageable.</p>
+                <p class="anomaly-card__preview">Temperature outside acceptable range. Not salvageable.</p>
                 <p class="anomaly-card__hint">Click to view details</p>
               </div>
             </div>
-            <div class="anomaly-card anomaly-card--bad" data-anomaly-more="photos/BrokenCappedVial_bright.png" data-anomaly-title="Broken/Cracked" data-anomaly-desc="The vial has cracks or is broken. The vial is no longer salvageable—the product must be discarded.">
+            <div class="anomaly-card anomaly-card--bad" data-anomaly-more="photos/BrokenCappedVial_bright.png" data-anomaly-title="Broken or Cracked" data-anomaly-desc="The vial has cracks or is broken. The vial is no longer salvageable. The product must be discarded.">
               <div class="anomaly-card__image-wrap">
                 <img src="photos/BrokenCappedVial_bright.png" alt="Broken vial">
               </div>
               <div class="anomaly-card__content">
                 <span class="anomaly-card__badge">Fail</span>
-                <h3 class="anomaly-card__title">Broken/Cracked</h3>
-                <p class="anomaly-card__preview">Cracks or breakage—not salvageable.</p>
+                <h3 class="anomaly-card__title">Broken or Cracked</h3>
+                <p class="anomaly-card__preview">Cracks or breakage. Not salvageable.</p>
                 <p class="anomaly-card__hint">Click to view details</p>
               </div>
             </div>
