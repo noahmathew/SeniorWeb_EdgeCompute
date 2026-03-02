@@ -19,5 +19,5 @@ def brighten_image(path):
     img.save(out)
     print(f"Saved {out}")
 
-for name in ["GoodVialMore.png", "HazardVialMore.png", "BrokenVialMore.png"]:
+for name in ["GoodVial.png", "MiscappedVial.png", "BadTempVial.png", "BrokenCappedVial.png"]:
     brighten_image(f"photos/{name}")
