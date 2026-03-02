@@ -255,6 +255,22 @@
       gap: 1.5rem;
     }
 
+    .media-grid--4col {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: 1100px) {
+      .media-grid--4col {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .media-grid--4col {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .media-card {
       background: var(--bg-card);
       border-radius: 12px;
@@ -882,7 +898,7 @@
     <section>
       <div class="container">
         <h2>System Overview</h2>
-        <div class="media-grid">
+        <div class="media-grid media-grid--4col">
           <div class="media-card media-card--expandable" data-expand-img="photos/VisualArch.png" data-expand-title="System Architecture" data-expand-desc="Edge compute pipeline and sensor integration">
             <img src="photos/VisualArch.png" alt="System architecture diagram">
             <div class="caption">
@@ -892,7 +908,7 @@
           </div>
           <div class="media-card">
             <div class="video-embed">
-              <iframe src="https://www.youtube.com/embed/7Gu7ogGSSG0" title="Anomaly Detection Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/35pODLxYtB8" title="Anomaly Detection Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div class="caption">
               <strong>Anomaly Detection Demo</strong>
@@ -904,6 +920,13 @@
             <div class="caption">
               <strong>AI Inference</strong>
               We fine-tuned a pre-trained YOLO Classifier to detect cracks and whether vials were capped properly.
+            </div>
+          </div>
+          <div class="media-card">
+            <img src="photos/IRT_CAM.png" alt="Live Input at the Edge - camera and sensor setup">
+            <div class="caption">
+              <strong>Live Input at the Edge</strong>
+              Live images are rendered along with the temperature.
             </div>
           </div>
         </div>
