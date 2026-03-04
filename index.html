@@ -587,9 +587,26 @@
 
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
-      align-items: start;
+      align-items: stretch;
+    }
+
+    .team-grid .team-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .team-grid .team-card .team-photo-wrap {
+      aspect-ratio: 1;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 600px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .team-card {
